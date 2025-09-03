@@ -1,7 +1,10 @@
+
 package com.prog.library_management.entity;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -9,6 +12,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="users")//maps to "users" table in mysql
@@ -33,8 +38,13 @@ public class User {
 	@ElementCollection(fetch=FetchType.EAGER)
 //	Stores roles like ADMIN or USER.
 //
+	@CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+	@Column(name = "role")
 //	Set is used instead of List to avoid duplicate roles.
     private Set<String> roles;
+	//Relations
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<IssueRecord> issueRecords;
 	//Default constructor required by JPA
 	public User() {
 		
