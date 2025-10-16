@@ -68,7 +68,6 @@ public class BookDTO {
 
 	public void setAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
-	}
-	
 
+	}
 }
