@@ -43,7 +43,7 @@ public class User {
 //	Set is used instead of List to avoid duplicate roles.
     private Set<String> roles;
 	//Relations
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)//mappedBy is showing non owning side
 	private Set<IssueRecord> issueRecords;
 	//Default constructor required by JPA
 	public User() {

@@ -31,7 +31,7 @@ public class Book {
 	private Boolean isAvailable;
 	
 	//One book can have multiple issue records
-	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL)//mappedBy is show non owning side/mirror/reflection
 	private Set<IssueRecord> issueRecord;
 	
 	//Default constructor required by JPA
