@@ -24,15 +24,15 @@ public class BookService {
 	}*/
 
 	public BookDTO addBook(BookDTO bookDTO) {
-		Book book = BookMapper.covertToEntity(bookDTO);
+		Book book = BookMapper.convertToEntity(bookDTO);
 		Book saved = bookRepo.save(book);
 		
-		return BookMapper.covnertToDTO(saved);
+		return BookMapper.convertToDTO(saved);
 	}
 
 	public List<BookDTO> getAllBooks() {
 		return bookRepo.findAll()
-		        .stream()
+		        .stream() 
 		        .map(BookMapper::convertToDTO)
 		        .collect(Collectors.toList());
 		
@@ -53,4 +53,4 @@ public class BookService {
 		
 	}
 
-}mubashar
+}

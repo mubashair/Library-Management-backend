@@ -5,7 +5,7 @@ import com.prog.library_management.entity.Book;
 
 public class BookMapper {
 	//coverting entity to dto
-	public static BookDTO covnertToDTO(Book book) {
+	public static BookDTO convertToDTO(Book book) {
 		BookDTO bookDTO = new BookDTO();
 		bookDTO.setId(book.getId());
 		bookDTO.setAuthor(book.getAuthor());
@@ -16,7 +16,7 @@ public class BookMapper {
 		return bookDTO;
 	}
 	//converting dto to entity
-	public static Book covertToEntity(BookDTO bookDTO) {
+	public static Book convertToEntity(BookDTO bookDTO) {
 		Book book = new Book();
 		book.setId(bookDTO.getId());
 		book.setAuthor(bookDTO.getAuthor());
