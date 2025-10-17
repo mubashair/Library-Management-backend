@@ -55,4 +55,5 @@ public class BookController {
 		bookService.deleteBook(id);
 		return ResponseEntity.noContent().build();
 	}
+
 }

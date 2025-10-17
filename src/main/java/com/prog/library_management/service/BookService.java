@@ -1,5 +1,4 @@
 package com.prog.library_management.service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,13 +38,21 @@ public class BookService {
 	}
 
 	public BookDTO getBookById(Long id) {
-		
-		return null;
+		Book book = bookRepo.findById(id)
+				.orElseThrow( ()->new RuntimeException("Book not found"));	
+		return BookMapper.convertToDTO(book);
 	}
 
 	public BookDTO updateBook(Long id, BookDTO bookDTO) {
+		Book existingBook = bookRepo.findById(id)
+				.orElseThrow(()->new RuntimeException("Book not found"));
+		existingBook.setTitle(bookDTO.getTitle());
+		existingBook.setAuthor(bookDTO.getAuthor());
+		existingBook.setIsbn(bookDTO.getIsbn());
+		existingBook.setQuantity(bookDTO.getQuantity());
+		Book updated = bookRepo.save(existingBook);
 		
-		return null;
+		return BookMapper.convertToDTO(updated);
 	}
 
 	public void deleteBook(Long id) {
@@ -53,4 +60,6 @@ public class BookService {
 		
 	}
 
+
 }
+

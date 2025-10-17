@@ -33,7 +33,7 @@ public class IssueRecord {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "book_id")
+	@JoinColumn(name = "book_id")//join column shows this is owning side
 	// @ManyToOne → Many issue records can belong to ONE book.
     // @JoinColumn → The column "book_id" will store the foreign key 
     // referencing the primary key of the 'books' table.

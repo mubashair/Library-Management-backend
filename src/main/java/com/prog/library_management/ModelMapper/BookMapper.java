@@ -1,6 +1,7 @@
 package com.prog.library_management.ModelMapper;
 
 import com.prog.library_management.dto.BookDTO;
+
 import com.prog.library_management.entity.Book;
 
 public class BookMapper {
@@ -10,7 +11,7 @@ public class BookMapper {
 		bookDTO.setId(book.getId());
 		bookDTO.setAuthor(book.getAuthor());
 		bookDTO.setIsbn(book.getIsbn());
-		bookDTO.setIsAavailable(book.getIsAvailable());
+		bookDTO.setAvailable(book.getIsAvailable());
 		bookDTO.setQuantity(bookDTO.getQuantity());
 		bookDTO.setTitle(book.getTitle());
 		return bookDTO;
@@ -21,7 +22,7 @@ public class BookMapper {
 		book.setId(bookDTO.getId());
 		book.setAuthor(bookDTO.getAuthor());
 		book.setIsbn(bookDTO.getIsbn());
-		book.setIsAvailable(bookDTO.getIsAavailable());
+		book.setIsAvailable(bookDTO.isAvailable());
 		book.setTitle(bookDTO.getTitle());
 		book.setQuantity(bookDTO.getQuantity());
 		return book;
