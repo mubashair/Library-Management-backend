@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.prog.library_management.ModelMapper.BookMapper;
 import com.prog.library_management.dto.BookDTO;
 import com.prog.library_management.entity.Book;
-import com.prog.library_management.repository.BookRepo;
+import com.prog.library_management.repo.BookRepo;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class BookService {
@@ -56,6 +58,10 @@ public class BookService {
 	}
 
 	public void deleteBook(Long id) {
+		if(!bookRepo.existsById(id)) {
+			throw new EntityNotFoundException("Book not found with ID:"+id);
+		}
+		bookRepo.deleteById(id);
 		
 		
 	}

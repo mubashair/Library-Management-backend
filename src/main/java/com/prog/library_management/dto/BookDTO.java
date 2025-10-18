@@ -1,11 +1,14 @@
 package com.prog.library_management.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BookDTO {
 	private Long id;
 	private String title;
 	private String isbn;
 	private String author;
 	private Integer quantity;
+	@JsonProperty("isAvailable")
 	private boolean isAvailable;
 	
 	public BookDTO() {
@@ -13,7 +16,6 @@ public class BookDTO {
 	}
 
 	public BookDTO(Long id, String title, String isbn, String author, Integer quantity, boolean isAvailable) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.isbn = isbn;
@@ -62,11 +64,11 @@ public class BookDTO {
 		this.quantity = quantity;
 	}
 
-	public boolean isAvailable() {
+	public boolean getIsAvailable() {
 		return isAvailable;
 	}
 
-	public void setAvailable(boolean isAvailable) {
+	public void setIsAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
 
 	}
