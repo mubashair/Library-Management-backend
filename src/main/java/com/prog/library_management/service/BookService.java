@@ -33,7 +33,7 @@ public class BookService {
 
 	public List<BookDTO> getAllBooks() {
 		return bookRepo.findAll()
-		        .stream()
+		        .stream() 
 		        .map(BookMapper::convertToDTO)
 		        .collect(Collectors.toList());
 		
@@ -58,6 +58,10 @@ public class BookService {
 	}
 
 	public void deleteBook(Long id) {
+		if(!bookRepo.existsById(id)) {
+			throw new EntityNotFoundException("Book not found with ID:"+id);
+		}
+		bookRepo.deleteById(id);
 		
 		if(!bookRepo.existsById(id)) {
 			throw new EntityNotFoundException("Book not found with ID:" +id);
@@ -65,4 +69,6 @@ public class BookService {
 		bookRepo.deleteById(id);
 	}
 
+
 }
+

@@ -3,8 +3,9 @@ package com.prog.library_management.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.prog.library_management.entity.Book;
+import com.prog.library_management.entity.IssueRecord;
 @Repository
-public interface BookRepo extends JpaRepository<Book, Long> {
+public interface IssueRecordRepo extends JpaRepository<IssueRecord, Long>{
+	
 
 }

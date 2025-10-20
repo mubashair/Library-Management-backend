@@ -11,8 +11,8 @@ public class BookMapper {
 		bookDTO.setId(book.getId());
 		bookDTO.setAuthor(book.getAuthor());
 		bookDTO.setIsbn(book.getIsbn());
-		bookDTO.setAvailable(book.getIsAvailable());
-		bookDTO.setQuantity(bookDTO.getQuantity());
+		bookDTO.setIsAvailable(book.getIsAvailable());
+		bookDTO.setQuantity(book.getQuantity());
 		bookDTO.setTitle(book.getTitle());
 		return bookDTO;
 	}
@@ -22,7 +22,7 @@ public class BookMapper {
 		book.setId(bookDTO.getId());
 		book.setAuthor(bookDTO.getAuthor());
 		book.setIsbn(bookDTO.getIsbn());
-		book.setIsAvailable(bookDTO.isAvailable());
+		book.setIsAvailable(bookDTO.getIsAvailable());
 		book.setTitle(bookDTO.getTitle());
 		book.setQuantity(bookDTO.getQuantity());
 		return book;
