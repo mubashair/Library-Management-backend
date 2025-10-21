@@ -25,6 +25,14 @@ public class IssueRecordService {
 	@Autowired
 	private BookRepo bookRepo;
 	
+	/*Steps*/
+	//1-Validates user and book IDs
+	//2-Ensure the book is available the qunatity >0
+	//3-Create a new issue record
+	//4-Decrease the book quantity
+	//5-Save both issue record and updated book
+	//6-Return the updated book
+	
 	//issue a book to user(borrow book)
 	public IssueRecord issueBook(Long userId, Long bookId) {
 		User user = userRepo.findById(userId)
