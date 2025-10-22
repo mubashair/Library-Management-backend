@@ -91,7 +91,7 @@ public class IssueRecordService {
 		book.setQuantity(book.getQuantity()+1);
 		//save the updated book details to DB
 		//5-save the updated record
-		return issueRecordRepo.save(record);
+		return issueRecordRepo.save(record); 
 	}
 	
 	

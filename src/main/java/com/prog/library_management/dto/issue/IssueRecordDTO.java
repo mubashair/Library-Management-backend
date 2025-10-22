@@ -1,6 +1,6 @@
 package com.prog.library_management.dto.issue;
 
-import java.util.Date;
+import java.time.LocalDate;
 /**
  * Data Transfer Object (DTO) for returning issue record details to the client.
  *
@@ -20,9 +20,11 @@ public class IssueRecordDTO {
 	private String username;
 	
 	//Date when the book was issued
-	private Date issueDate;
+	private LocalDate issueDate;
+	//Date when the book should be returned
+	private LocalDate dueDate;
 	//Actual return date (if the book has been returned)
-	private Date returnDate;
+	private LocalDate returnDate;
 	//Status -whether the book is returned or still borrowed
 	private boolean isReturned;
 	//Default constructor --required for spring and serialization
@@ -30,8 +32,8 @@ public class IssueRecordDTO {
 		
 	}
 	//parameterized constructor useful for manual mapping or testing
-	public IssueRecordDTO(Long id, Long bookId, String bookTitle, Long userId, String username, Date issueDate,
-			Date returnDate, boolean isReturned) {
+	public IssueRecordDTO(Long id, Long bookId, String bookTitle, Long userId, String username, LocalDate issueDate,
+			LocalDate returnDate, boolean isReturned) {
 		
 		this.id = id;
 		this.bookId = bookId;
@@ -74,25 +76,30 @@ public class IssueRecordDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Date getIssueDate() {
+	public LocalDate getIssueDate() {
 		return issueDate;
 	}
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
-	public Date getReturnDate() {
+	public LocalDate getReturnDate() {
 		return returnDate;
 	}
-	public void setReturnDate(Date returnDate) {
+	public void setReturnDate(LocalDate returnDate) {
 		this.returnDate = returnDate;
 	}
-	public boolean isReturned() {
+	public boolean getIsReturned() {
 		return isReturned;
 	}
-	public void setReturned(boolean isReturned) {
+	public void setIsReturned(boolean isReturned) {
 		this.isReturned = isReturned;
 	}
-	
+	public LocalDate getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
+	}
 	
 
 }
